@@ -30,7 +30,9 @@ public class ProfileServlet extends HttpServlet {
         UserProfileViewModel userViewModel = this.mapper
                 .map(this.userService.findUserByUsername(req.getSession().getAttribute("username").toString()), UserProfileViewModel.class);
 
+        req.setAttribute("viewModel", null);
         req.setAttribute("viewModel", userViewModel);
+        
         req.getRequestDispatcher("jsp/profile.jsp").forward(req, resp);
     }
 }
