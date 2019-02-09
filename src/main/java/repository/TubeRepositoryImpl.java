@@ -2,17 +2,17 @@ package repository;
 
 import domain.entities.Tube;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import java.util.List;
 
 public class TubeRepositoryImpl implements TubeRepository {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
-    public TubeRepositoryImpl() {
-        this.entityManager = Persistence.createEntityManagerFactory("meTube")
-                .createEntityManager();
+    @Inject
+    public TubeRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override

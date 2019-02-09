@@ -2,8 +2,8 @@ package web.servlets;
 
 import domain.models.binding.UserLoginBindingModel;
 import domain.models.service.UserServiceModel;
+import org.modelmapper.ModelMapper;
 import service.UserService;
-import util.Mapper;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -18,12 +18,13 @@ public class UserLoginServlet extends HttpServlet {
 
     private final UserService userService;
 
-    private final Mapper mapper;
+    private final ModelMapper mapper;
+
 
     @Inject
-    public UserLoginServlet(UserService userService, Mapper mapper) {
+    public UserLoginServlet(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
-        this.mapper = mapper;
+        this.mapper = modelMapper;
     }
 
     @Override

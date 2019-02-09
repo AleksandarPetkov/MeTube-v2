@@ -1,16 +1,17 @@
 package repository;
 import domain.entities.User;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
-    private EntityManager entityManager;
 
-    public UserRepositoryImpl() {
-        this.entityManager = Persistence.createEntityManagerFactory("meTube")
-                .createEntityManager();
+    private final EntityManager entityManager;
+
+    @Inject
+    public UserRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override

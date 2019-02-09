@@ -63,6 +63,14 @@ public class TubeServiceModel {
         return uploader;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setUploader(UserServiceModel uploader) {
         this.uploader = uploader;
     }
