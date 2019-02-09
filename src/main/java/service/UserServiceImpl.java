@@ -42,4 +42,15 @@ public class UserServiceImpl implements UserService {
 
         return false;
     }
+
+    @Override
+    public UserServiceModel findUserByUsername(String username) {
+        User user = this.userRepository.findUserByUsername(username);
+
+        if (user == null){
+            throw new IllegalArgumentException();
+        }
+
+        return this.mapper.map(user, UserServiceModel.class);
+    }
 }

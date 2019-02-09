@@ -22,7 +22,7 @@ public class TubeUploadFilter implements Filter {
             bindingModel.setAuthor(req.getParameter("author"));
             bindingModel.setYouTubeLink(req.getParameter("youtube-link"));
             bindingModel.setDescription(req.getParameter("description"));
-            bindingModel.setAuthor(req.getSession().getAttribute("username").toString());
+            bindingModel.setUploader((String) req.getSession().getAttribute("username"));
 
             req.setAttribute("modelBinding", bindingModel);
         }
